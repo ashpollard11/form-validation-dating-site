@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -26,15 +26,21 @@ var EmailValidator = function (_Validator) {
 	}
 
 	_createClass(EmailValidator, [{
-		key: 'validate',
+		key: "validate",
 		value: function validate() {
-			_get(EmailValidator.prototype.__proto__ || Object.getPrototypeOf(EmailValidator.prototype), 'validate', this).call(this);
+			_get(EmailValidator.prototype.__proto__ || Object.getPrototypeOf(EmailValidator.prototype), "validate", this).call(this);
 
-			if (!this.$field.value.includes('@')) {
-				this.errors.push("Your email must include an @");
-			}
-			if (!this.$field.value.includes('.')) {
-				this.errors.push("Your email must include a .");
+			// if (!this.$field.value.includes('@')) {
+			// 	this.errors.push("Your email must include an @");
+			// }
+			// if (!this.$field.value.includes('.')) {
+			// 	this.errors.push("Your email must include a .");
+			// }
+
+			var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+			if (!this.$field.value.match(emailRegex)) {
+				this.errors.push("Your email is not valid");
 			}
 		}
 	}]);

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -13,26 +13,45 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SpecialCharacterValidator = function (_Validator) {
 	_inherits(SpecialCharacterValidator, _Validator);
 
-	function SpecialCharacterValidator(selector) {
+	function SpecialCharacterValidator(selector, specialCharacters) {
 		_classCallCheck(this, SpecialCharacterValidator);
 
 		//call constructor in validator()
 		var _this = _possibleConstructorReturn(this, (SpecialCharacterValidator.__proto__ || Object.getPrototypeOf(SpecialCharacterValidator)).call(this, selector));
 
 		console.log('constructor from SpecialCharacterValidator');
-		//we dont need this constructor. It doesnt do anything different from the 
-		//parent class constructor. It's here for illustrative purposes.
+
+		_this.specialCharacters = specialCharacters;
 		return _this;
 	}
 
 	_createClass(SpecialCharacterValidator, [{
-		key: "validate",
+		key: 'validate',
 		value: function validate() {
-			_get(SpecialCharacterValidator.prototype.__proto__ || Object.getPrototypeOf(SpecialCharacterValidator.prototype), "validate", this).call(this);
+			var _this2 = this;
 
-			if (!this.$field.value.includes("!", "@", "#", "$", "%", "^", "&", "*")) {
+			_get(SpecialCharacterValidator.prototype.__proto__ || Object.getPrototypeOf(SpecialCharacterValidator.prototype), 'validate', this).call(this);
+
+			var foundASpecialCharacter = false;
+
+			this.specialCharacters.forEach(function (char) {
+				console.log('look for character', char);
+				if (_this2.$field.value.includes(char)) {
+					foundASpecialCharacter = true;
+				}
+			});
+
+			if (!foundASpecialCharacter) {
 				this.errors.push("Password must include one of the following characters: !@#$%^&*");
 			}
+
+			// this.specialCharacters.forEach((character) => {
+			// 	if (this.$field.value.includes(character)) {
+			// 		return true;
+			// 	} else {
+			// 	this.errors.push("Password must include one of the following characters: !@#$%^&*");
+			// 	};
+			// });
 		}
 	}]);
 

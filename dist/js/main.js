@@ -4,6 +4,8 @@ console.log("Flava with a cocoa kinda flow");
 
 var disallowedCharacters = ["{}", "[]", "|", "/", ":", ";", "<>", "=", "+"];
 
+var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*"];
+
 var validatorFirst = new Validator('[name=first-name]');
 var validatorLast = new Validator('[name=last-name]');
 
@@ -17,7 +19,7 @@ var validatorPw = new Validator('[name=password]');
 var validatorPwMatch = new MatchValidator('[name=password-valid]', '[name=password]');
 var validatorPwLength = new LengthValidator('[name=password]', 3, 20);
 var validatorPwDisallowed = new DisallowedValidator('[name=password]', disallowedCharacters);
-var validatorSpecialCharacter = new SpecialCharacterValidator('[name=password]');
+var validatorSpecialCharacter = new SpecialCharacterValidator('[name=password]', specialCharacters);
 var validatorUpperLower = new UpperLowerValidator('[name=password]');
 
 //animations
@@ -27,7 +29,7 @@ var form1 = document.querySelector(".form-1");
 var form2 = document.querySelector(".form-2");
 
 continueBtn.onclick = function () {
-	form1.classList.add(".hidden");
-	form2.classList.add(".active");
+	form1.classList.add("hidden");
+	form2.classList.add("active");
 };
 //# sourceMappingURL=main.js.map

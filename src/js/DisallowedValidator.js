@@ -10,7 +10,7 @@ class DisallowedValidator extends Validator {
 
 		this.characterArray.forEach((character) => {
 			if (this.$field.value.includes(character)) {
-			this.errors.push("Password cannot contain the following characters: " + this.characterArray);
+				this.errors.push("Password cannot contain the following characters: " + this.characterArray);
 			};
 		});
 	}

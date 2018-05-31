@@ -9,12 +9,19 @@ class EmailValidator extends Validator {
 	validate() {
 		super.validate();
 		
-		if (!this.$field.value.includes('@')) {
-			this.errors.push("Your email must include an @");
+		// if (!this.$field.value.includes('@')) {
+		// 	this.errors.push("Your email must include an @");
+		// }
+		// if (!this.$field.value.includes('.')) {
+		// 	this.errors.push("Your email must include a .");
+		// }
+
+		let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+		if (!this.$field.value.match(emailRegex)) {
+		 	this.errors.push("Your email is not valid");
 		}
-		if (!this.$field.value.includes('.')) {
-			this.errors.push("Your email must include a .");
-		}
+
 
 	}
 

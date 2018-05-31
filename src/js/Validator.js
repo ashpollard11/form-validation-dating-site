@@ -10,6 +10,13 @@ class Validator {
 			return false;
 		}
 
+		// Fetch a formatted name for the field from the alt tag, and fall back to the field's name tag 
+		if (this.$field.alt) {
+			this.fieldName = this.$field.alt;
+		} else {
+			this.fieldName = this.$field.name.replace('_', ' ').replace('-', ' '); // with some formatting help
+		}
+
 		let $errorContainer;
 
 		if (this.$errorContainer !== true) {

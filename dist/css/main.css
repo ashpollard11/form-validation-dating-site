@@ -100,6 +100,9 @@ form {
 
 input {
 	margin-bottom: 10px;
+	height: 30px;
+	border-radius: 5px;
+	border: none;
 }
 
 button {
@@ -121,7 +124,7 @@ h2 {
 .log-button {
 	height: 40px;
 	width: 100px;
-	background: rgba(238, 81, 202, 0.9);
+	background: rgba(238, 81, 202, 0.6);
 }
 
 .form-container {
@@ -135,6 +138,7 @@ form {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
+	max-width: 500px;
 }
 
 .small {
@@ -149,24 +153,25 @@ form {
 }
 
 .form-1 {
+	opacity: 1;
 	transition: 0.7s;
 }
 
 .form-1.hidden {
 	opacity: 0;
 	transform: translateY(50px);
+	display: none;
 }
 
 .form-2 {
-	z-index: -1;
 	opacity: 0;
 	transition: 0.7s;
+	transform: translateY(50px);
 }
 
 .form-2.active {
-	z-index: 1;
 	opacity: 1;
-	transform: translateY(-50px);
+	transform: translateY(0px);
 }
 
 /*# sourceMappingURL=main.css.map */
