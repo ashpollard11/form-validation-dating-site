@@ -32,3 +32,17 @@ let validatorPwDisallowed = new DisallowedValidator('[name=password]', disallowe
 let validatorSpecialCharacter = new SpecialCharacterValidator('[name=password]')
 let validatorUpperLower = new UpperLowerValidator('[name=password]')
 
+
+//animations
+
+const continueBtn = document.querySelector(".continue");
+const form1 = document.querySelector(".form-1");
+const form2 = document.querySelector(".form-2");
+
+
+continueBtn.onclick = function() {
+	form1.classList.add(".hidden");
+	form2.classList.add(".active");
+}
+
+

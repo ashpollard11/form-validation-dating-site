@@ -19,4 +19,15 @@ var validatorPwLength = new LengthValidator('[name=password]', 3, 20);
 var validatorPwDisallowed = new DisallowedValidator('[name=password]', disallowedCharacters);
 var validatorSpecialCharacter = new SpecialCharacterValidator('[name=password]');
 var validatorUpperLower = new UpperLowerValidator('[name=password]');
+
+//animations
+
+var continueBtn = document.querySelector(".continue");
+var form1 = document.querySelector(".form-1");
+var form2 = document.querySelector(".form-2");
+
+continueBtn.onclick = function () {
+	form1.classList.add(".hidden");
+	form2.classList.add(".active");
+};
 //# sourceMappingURL=main.js.map

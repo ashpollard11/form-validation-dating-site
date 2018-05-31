@@ -11,34 +11,45 @@
 	</head>
 	<body>
 
-		<form class="form-1">
-			<label>
-				Name
-				<input type="text" name="first-name" placeholder="First Name">
-				<input type="text" name="last-name" placeholder="Last Name">
-			</label>
-			<label>
-				Email
-				<input type="text" name="email" placeholder="name@domain.com">
-			</label>
-			<button type="button" class="button continue">Continue</button>
-		</form>
+		<header>
+			<h1>Puppy Love</h1>
+			<h2>Already A Member?
+				<button type="button" class="log-button">Login</button>
+			</h2>
 
+		</header>
 
-		<form class="form-2">
-			<label>
-				Date of Birth
-				<input class="small" type="number" name="month" placeholder="MM">
-				<input class="small" type="number" name="day" placeholder="DD">
-				<input class="small" type="number" name="year" placeholder="YY">
-			</label>
-			<label>
-				Password
-				<input type="password" name="password" placeholder="Password">
-				<input type="password" name="password-valid" placeholder="Confirm Password">
-			</label>
-			<button type="button" class="button submit">Submit</button>
-		</form>
+		<div class="form-container">
+			<form class="form-1">
+				<label>
+					Name
+					<input type="text" name="first-name" placeholder="First Name">
+					<input type="text" name="last-name" placeholder="Last Name">
+				</label>
+				<label>
+					Email
+					<input type="text" name="email" placeholder="name@domain.com">
+				</label>
+				<button type="button" class="submit-button continue">Continue</button>
+			</form>
+
+			<form class="form-2">
+				<label>
+					Date of Birth
+					<input class="small" type="number" name="month" placeholder="MM">
+					<input class="small" type="number" name="day" placeholder="DD">
+					<input class="small" type="number" name="year" placeholder="YY">
+				</label>
+				<label>
+					Password
+					<input type="password" name="password" placeholder="Password">
+					<input type="password" name="password-valid" placeholder="Confirm Password">
+				</label>
+				<button type="button" class="submit-button submit">Submit</button>
+			</form>
+		</div>
+
+		
 		
 		
 		<script src="dist/js/Validator.js"></script>
