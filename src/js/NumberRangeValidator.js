@@ -10,7 +10,7 @@ class NumberRangeValidator extends Validator {
 		super.validate();
 
 		let numericValue = parseFloat(this.$field.value);
-		if (isNan(numericValue)) {
+		if (isNaN(numericValue)) {
 			this.errors.push("You must enter a numeric value");
 		}
 		if (numericValue < this.min) {

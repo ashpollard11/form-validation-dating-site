@@ -31,7 +31,7 @@ var NumberRangeValidator = function (_Validator) {
 			_get(NumberRangeValidator.prototype.__proto__ || Object.getPrototypeOf(NumberRangeValidator.prototype), "validate", this).call(this);
 
 			var numericValue = parseFloat(this.$field.value);
-			if (isNan(numericValue)) {
+			if (isNaN(numericValue)) {
 				this.errors.push("You must enter a numeric value");
 			}
 			if (numericValue < this.min) {

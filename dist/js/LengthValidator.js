@@ -20,8 +20,8 @@ var LengthValidator = function (_Validator) {
 		var _this = _possibleConstructorReturn(this, (LengthValidator.__proto__ || Object.getPrototypeOf(LengthValidator)).call(this, selector));
 
 		console.log('constructor from LengthValidator');
-		//we dont need this constructor. It doesnt do anything different from the 
-		//parent class constructor. It s's here for illustrative purposes.
+		_this.min = min; //take arguments and put them into properties of the class
+		_this.max = max; //take arguments and put them into properties of the class
 		return _this;
 	}
 
@@ -30,11 +30,11 @@ var LengthValidator = function (_Validator) {
 		value: function validate() {
 			_get(LengthValidator.prototype.__proto__ || Object.getPrototypeOf(LengthValidator.prototype), "validate", this).call(this);
 
-			if (this.$field.value.length < min) {
-				this.errors.push("You must enter more than " + min + " characters");
+			if (this.$field.value.length < this.min) {
+				this.errors.push("Password must contain more than " + this.min + " characters");
 			}
-			if (this.$field.value.length > max) {
-				this.errors.push("You must enter more than " + max + " characters");
+			if (this.$field.value.length > this.max) {
+				this.errors.push("Password cannot contain more than " + this.max + " characters");
 			}
 		}
 	}]);

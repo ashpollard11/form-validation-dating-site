@@ -10,8 +10,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MatchValidator = function (_NumberRangeValidator) {
-	_inherits(MatchValidator, _NumberRangeValidator);
+var MatchValidator = function (_Validator) {
+	_inherits(MatchValidator, _Validator);
 
 	function MatchValidator(selector, matchingSelector) {
 		_classCallCheck(this, MatchValidator);
@@ -20,8 +20,7 @@ var MatchValidator = function (_NumberRangeValidator) {
 		var _this = _possibleConstructorReturn(this, (MatchValidator.__proto__ || Object.getPrototypeOf(MatchValidator)).call(this, selector));
 
 		console.log('constructor from MatchValidator');
-		//we dont need this constructor. It doesnt do anything different from the 
-		//parent class constructor. It s's here for illustrative purposes.
+		_this.matchingField = document.querySelector(matchingSelector);
 		return _this;
 	}
 
@@ -30,12 +29,12 @@ var MatchValidator = function (_NumberRangeValidator) {
 		value: function validate() {
 			_get(MatchValidator.prototype.__proto__ || Object.getPrototypeOf(MatchValidator.prototype), "validate", this).call(this);
 
-			if (matchingSelector.value === true && this.$field.value !== matchingSelector.value) {
+			if (this.matchingField.value.length && this.$field.value !== this.matchingField.value) {
 				this.errors.push("Passwords must match");
 			}
 		}
 	}]);
 
 	return MatchValidator;
-}(NumberRangeValidator);
+}(Validator);
 //# sourceMappingURL=MatchValidator.js.map
